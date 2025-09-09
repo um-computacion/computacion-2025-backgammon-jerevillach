@@ -6,5 +6,11 @@ class TestPlayer(unittest.TestCase):
         jugador = Player("Jeremías")
         self.assertEqual(jugador.__fichas__, 15)
 
+    def test_add_checker(self):
+        jugador = Player("Jeremías")
+        jugador.add_checker()
+        self.assertEqual(jugador.__fichas__, 16)
+
 if __name__ == "__main__":
     unittest.main()
+
