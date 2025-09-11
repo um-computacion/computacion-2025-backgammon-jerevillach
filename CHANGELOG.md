@@ -6,3 +6,9 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 - Estructura inicial del proyecto.
 - Clases base: Board, Player, Dice y BackgammonGame.
 - Test inicial para dados.
+## [0.2.0] - 2025-09-11
+- Método `reset_board()` en Board.
+- Método `add_checker()` en Player.
+- Método `tirar_dados()` en BackgammonGame.
+- Tests para Board, Player y BackgammonGame.
+- Archivos de registro: prompts-testing.md y prompts-documentacion.md.
