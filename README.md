@@ -17,3 +17,5 @@ backgammon/core/ → lógica del juego
 backgammon/cli/ → interfaz por consola
 backgammon/pygame_ui/ → interfaz gráfica con Pygame
 backgammon/tests/ → pruebas unitarias
+ Cómo ejecutar la CLI para tirar dados
+python -m backgammon.cli.cli
