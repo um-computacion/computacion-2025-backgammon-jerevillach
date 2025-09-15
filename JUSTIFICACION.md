@@ -26,5 +26,8 @@ Se comenzó con pruebas unitarias de la clase `Dice` y se agregará cobertura pa
 ## Principios SOLID
 - **S**: cada clase tiene una responsabilidad única.  
 - **O**: el diseño permitirá extender interfaces sin modificar la lógica.  
+### Nuevas decisiones de diseño
+- Se agregó el método `remove_checker()` en Player para manejar la lógica de quitar fichas.
+- Se agregaron tests correspondientes para asegurar el correcto funcionamiento.
 
----
+
