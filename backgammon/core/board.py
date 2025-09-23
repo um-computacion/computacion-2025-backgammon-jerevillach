@@ -10,3 +10,10 @@ class Board:
         """
         self.__puntos__ = [0] * 24
         return self.__puntos__
+    def add_piece(self, index: int):
+        """
+        Agrega una ficha en el punto indicado (0-23).
+        """
+        if 0 <= index < 24:
+            self.__puntos__[index] += 1
+        return self.__puntos__[index]
