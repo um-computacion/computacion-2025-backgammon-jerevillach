@@ -12,3 +12,6 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 - Método `tirar_dados()` en BackgammonGame.
 - Tests para Board, Player y BackgammonGame.
 - Archivos de registro: prompts-testing.md y prompts-documentacion.md.
+## [0.2.1] - 2025-09-22
+- Método `add_piece()` en Board.
+- Test correspondiente para `add_piece()`
