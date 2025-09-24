@@ -13,5 +13,5 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 - Tests para Board, Player y BackgammonGame.
 - Archivos de registro: prompts-testing.md y prompts-documentacion.md.
 ## [0.2.1] - 2025-09-22
-- Método `add_piece()` en Board.
-- Test correspondiente para `add_piece()`
+- Se agregó el método `add_piece()` en Board.
+- Se agregó un test para verificar `add_piece()`.
