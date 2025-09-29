@@ -1,0 +1,3 @@
+pygame
+pylint
+redis  # opcional, para guardado de partidas
