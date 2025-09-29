@@ -1,4 +1,8 @@
 class Player:
+    """Jugador de Backgammon.
+    Guarda el nombre y la cantidad de fichas del jugador y permite sumar o quitar fichas.
+    """
+class Player:
     """Representa a un jugador con sus fichas."""
 
     def __init__(self, nombre: str):

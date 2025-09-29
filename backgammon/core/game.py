@@ -1,6 +1,10 @@
 from .board import Board
 from .player import Player
 from .dice import Dice
+class BackgammonGame:
+    """Coordinador del juego.
+    Usa Board, Player y Dice para gestionar turnos y el flujo general de la partida.
+    """
 
 class BackgammonGame:
     """Coordina el flujo general del juego."""

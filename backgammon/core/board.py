@@ -1,4 +1,8 @@
 class Board:
+    """Tablero de Backgammon. 
+    Maneja los 24 puntos del tablero y el estado de las fichas en cada uno.
+    """
+class Board:
     """Representa el tablero de Backgammon con 24 puntos."""
 
     def __init__(self):
