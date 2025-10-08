@@ -1,6 +1,7 @@
-def main():
-    print("Bienvenido a Backgammon ")
-    print("Esta es una versión inicial para pruebas.")
+"""Punto de entrada del proyecto Backgammon."""
+
+from backgammon.cli.cli import ejecutar_cli
 
 if __name__ == "__main__":
-    main()
+    ejecutar_cli()
+
