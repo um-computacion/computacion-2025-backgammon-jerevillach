@@ -19,3 +19,9 @@ backgammon/pygame_ui/ → interfaz gráfica con Pygame
 backgammon/tests/ → pruebas unitarias
  Cómo ejecutar la CLI para tirar dados
 python -m backgammon.cli.cli
+## Cómo jugar desde la terminal
+1. Asegurate de tener Python 3.10 o superior.
+2. Ejecutá el juego con:
+   python main.py
+
+
