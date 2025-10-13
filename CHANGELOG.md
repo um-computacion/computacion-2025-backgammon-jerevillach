@@ -15,3 +15,6 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 ## [0.2.1] - 2025-09-22
 - Se agregó el método `add_piece()` en Board.
 - Se agregó un test para verificar `add_piece()`.
+## [0.2.2] - 2025-10-13
+- Clase `Checker` creada con color y posición.
+- Test unitario para `Checker` en `test_checker.py`.
