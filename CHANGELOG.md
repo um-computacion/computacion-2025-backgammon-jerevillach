@@ -18,3 +18,6 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 ## [0.2.2] - 2025-10-13
 - Clase `Checker` creada con color y posición.
 - Test unitario para `Checker` en `test_checker.py`.
+## [0.2.3] - 2025-10-14
+- Board actualizado para manejar fichas (Checkers) en los puntos.
+- Tests agregados para verificar integración Board + Checker
