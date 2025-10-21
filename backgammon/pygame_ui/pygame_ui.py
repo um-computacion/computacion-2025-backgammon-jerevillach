@@ -76,5 +76,6 @@ class PygameUI:
             self.reloj.tick(30)
 
         pygame.quit()
+# Método para mostrar fichas de ambos jugadores en Pygame
 
 
