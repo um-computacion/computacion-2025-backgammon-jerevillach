@@ -21,3 +21,6 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 ## [0.2.3] - 2025-10-14
 - Board actualizado para manejar fichas (Checkers) en los puntos.
 - Tests agregados para verificar integración Board + Checker
+## [0.2.4] - 2025-10-22
+- Agregado método para dibujar tablero con triángulos.
+- Agregado método para mostrar fichas de ambos jugadores en Pygame.
