@@ -44,24 +44,23 @@ class PygameUI:
             ]
             pygame.draw.polygon(self.pantalla, color, puntos_inferior)
 
-    def dibujar_fichas(self):
-        """Dibuja las fichas iniciales de los jugadores."""
-        color_blanco = (255, 255, 255)
-        color_negro = (0, 0, 0)
+    def dibujar_fichas(self, board):
+        """Dibuja las fichas en pantalla según el estado del Board."""
+        color_jugador1 = (255, 255, 255)
+        color_jugador2 = (0, 0, 0)
         radio = 15
         ancho_punto = self.ancho // 12
 
-        # Fichas jugador 1 (superior)
-        for i in range(5):
-            x = ancho_punto * 2 + i * (radio * 2 + 5)
-            y = 200
-            pygame.draw.circle(self.pantalla, color_blanco, (x, y), radio)
-
-        # Fichas jugador 2 (inferior)
-        for i in range(5):
-            x = ancho_punto * 8 + i * (radio * 2 + 5)
-            y = self.alto - 200
-            pygame.draw.circle(self.pantalla, color_negro, (x, y), radio)
+        for i, punto in enumerate(board.puntos):
+            for j, ficha in enumerate(punto):
+                color = color_jugador1 if ficha.jugador == 1 else color_jugador2
+                x = i * ancho_punto + ancho_punto // 2
+                # Arriba (puntos 0–11) las fichas bajan; abajo (12–23) suben
+                if i < 12:
+                    y = 100 + j * (radio * 2 + 5)
+                else:
+                    y = self.alto - 100 - j * (radio * 2 + 5)
+                pygame.draw.circle(self.pantalla, color, (x, y), radio)
 
     def ejecutar(self):
         """Loop principal de la interfaz gráfica."""
@@ -70,12 +69,7 @@ class PygameUI:
                 if evento.type == pygame.QUIT:
                     self.ejecutando = False
 
-            self.dibujar_tablero()
-            self.dibujar_fichas()
             pygame.display.flip()
             self.reloj.tick(30)
 
         pygame.quit()
-# Método para mostrar fichas de ambos jugadores en Pygame
-
-
