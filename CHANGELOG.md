@@ -24,3 +24,6 @@ Todas las modificaciones importantes de este proyecto se documentarán en este a
 ## [0.2.4] - 2025-10-22
 - Agregado método para dibujar tablero con triángulos.
 - Agregado método para mostrar fichas de ambos jugadores en Pygame.
+## [0.2.5] - 2025-10-24
+- Integración de Board y Checker con la interfaz Pygame.
+- Ajuste en main.py para mostrar tablero dinámico.
