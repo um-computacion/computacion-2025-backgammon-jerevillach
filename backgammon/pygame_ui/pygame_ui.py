@@ -15,9 +15,11 @@ class PygameUI:
         self.reloj = pygame.time.Clock()
         self.ejecutando = True
 
-        # Atributos nuevos para movimiento
+        # Estados del juego
         self.ficha_seleccionada = None
         self.tablero = None
+        self.valores_dados = (0, 0)
+        self.boton_rect = pygame.Rect(self.ancho//2 - 80, self.alto - 80, 160, 50)
 
     def dibujar_tablero(self):
         """Dibuja el fondo del tablero con triángulos alternados."""
@@ -60,41 +62,48 @@ class PygameUI:
                 color = color_jugador1 if ficha.jugador == 1 else color_jugador2
                 x = i * ancho_punto + ancho_punto // 2
                 y = 100 + j * (radio * 2 + 5) if i < 12 else self.alto - 100 - j * (radio * 2 + 5)
-
-                # Dibujar sombra
                 pygame.draw.circle(self.pantalla, sombra, (x + 2, y + 2), radio)
-
-                # Dibujar ficha principal
                 pygame.draw.circle(self.pantalla, color, (x, y), radio)
-
-                # Borde
                 pygame.draw.circle(self.pantalla, (200, 200, 200), (x, y), radio, 2)
 
-    def dibujar_dados(self, valores):
-        """Dibuja dos dados con los valores actuales en el centro de la pantalla."""
+    def dibujar_dados(self):
+        """Dibuja los valores actuales de los dados en el centro."""
+        if self.valores_dados == (0, 0):
+            return
+
         font = pygame.font.Font(None, 60)
         color_fondo = (255, 255, 255)
         color_borde = (0, 0, 0)
         color_numero = (0, 0, 0)
-
         posiciones = [
             (self.ancho // 2 - 90, self.alto // 2 - 30),
             (self.ancho // 2 + 30, self.alto // 2 - 30)
         ]
 
-        for i, valor in enumerate(valores):
+        for i, valor in enumerate(self.valores_dados):
             x, y = posiciones[i]
             pygame.draw.rect(self.pantalla, color_fondo, (x, y, 60, 60))
             pygame.draw.rect(self.pantalla, color_borde, (x, y, 60, 60), 2)
-
             texto = font.render(str(valor), True, color_numero)
             texto_rect = texto.get_rect(center=(x + 30, y + 30))
             self.pantalla.blit(texto, texto_rect)
 
-        pygame.display.flip()
+    def dibujar_boton_dados(self):
+        """Dibuja el botón para tirar los dados."""
+        color_boton = (180, 0, 0)
+        color_texto = (255, 255, 255)
+        pygame.draw.rect(self.pantalla, color_boton, self.boton_rect, border_radius=10)
+        font = pygame.font.Font(None, 36)
+        texto = font.render("🎲 Tirar Dados", True, color_texto)
+        texto_rect = texto.get_rect(center=self.boton_rect.center)
+        self.pantalla.blit(texto, texto_rect)
 
     def manejar_click(self, posicion_mouse):
-        """Detecta selección y movimiento básico de fichas."""
+        """Detecta clics en fichas o en el botón de dados."""
+        if self.boton_rect.collidepoint(posicion_mouse):
+            self.valores_dados = (random.randint(1, 6), random.randint(1, 6))
+            return
+
         if not self.tablero:
             return
 
@@ -121,6 +130,8 @@ class PygameUI:
 
             self.dibujar_tablero()
             self.dibujar_fichas(board)
+            self.dibujar_boton_dados()
+            self.dibujar_dados()
             pygame.display.flip()
             self.reloj.tick(30)
 
