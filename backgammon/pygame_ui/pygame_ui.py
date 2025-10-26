@@ -50,16 +50,25 @@ class PygameUI:
         """Dibuja las fichas en pantalla según el estado del Board."""
         color_jugador1 = (255, 255, 255)
         color_jugador2 = (0, 0, 0)
+        sombra = (60, 60, 60)
         radio = 15
         ancho_punto = self.ancho // 12
-        self.tablero = board  # Guardamos el tablero actual
+        self.tablero = board
 
         for i, punto in enumerate(board.puntos):
             for j, ficha in enumerate(punto):
                 color = color_jugador1 if ficha.jugador == 1 else color_jugador2
                 x = i * ancho_punto + ancho_punto // 2
                 y = 100 + j * (radio * 2 + 5) if i < 12 else self.alto - 100 - j * (radio * 2 + 5)
+
+                # Dibujar sombra
+                pygame.draw.circle(self.pantalla, sombra, (x + 2, y + 2), radio)
+
+                # Dibujar ficha principal
                 pygame.draw.circle(self.pantalla, color, (x, y), radio)
+
+                # Borde
+                pygame.draw.circle(self.pantalla, (200, 200, 200), (x, y), radio, 2)
 
     def dibujar_dados(self, valores):
         """Dibuja dos dados con los valores actuales en el centro de la pantalla."""
@@ -116,5 +125,6 @@ class PygameUI:
             self.reloj.tick(30)
 
         pygame.quit()
+
 
    
