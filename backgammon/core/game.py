@@ -24,8 +24,14 @@ class BackgammonGame:
         """Tira dos dados y guarda los valores."""
         self.dados = [random.randint(1, 6), random.randint(1, 6)]
         self.dados_usados = []
-        print(f"Dados: {self.dados}")
         return self.dados
+
+    def mostrar_info_turno(self):
+        """Devuelve texto con el jugador y los dados actuales."""
+        jugador = self.jugador1 if self.turno_actual == 1 else self.jugador2
+        if not self.dados:
+            return f"Turno de {jugador} - todavía no tiró los dados"
+        return f"Turno de {jugador} - Dados: {self.dados[0]} y {self.dados[1]}"
 
     def movimiento_valido(self, origen, destino):
         """Valida si un movimiento es posible según los dados disponibles."""
@@ -38,14 +44,12 @@ class BackgammonGame:
             print(f"Movimiento inválido: la distancia {distancia} no coincide con ningún dado {self.dados}.")
             return False
 
-        # Verificar si hay fichas en el punto de origen
         if not self.board.puntos[origen]:
             print("No hay fichas en ese punto.")
             return False
 
         ficha = self.board.puntos[origen][-1]
 
-        # Verificar si pertenece al jugador actual
         if ficha.jugador != self.turno_actual:
             print("Esa ficha no te pertenece.")
             return False
@@ -55,7 +59,6 @@ class BackgammonGame:
         self.board.puntos[destino].append(ficha)
         self.dados_usados.append(distancia)
         self.dados.remove(distancia)
-        print(f"Ficha movida de {origen} a {destino}. Dados restantes: {self.dados}")
         return True
 
     def cambiar_turno(self):
