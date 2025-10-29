@@ -38,16 +38,15 @@ def main():
         print("Partida restaurada desde Redis.")
     else:
         print("Opción inválida, se iniciará una nueva partida.")
-    
-    # Iniciar interfaz gráfica
+# Iniciar interfaz gráfica
     interfaz = PygameUI(juego)
-    interfaz.ejecutar(juego.board)
+    interfaz.ejecutar()  # ✅ sin argumentos
 
-    # Guardar el estado actual al salir del juego
+# Guardar el estado actual al salir del juego
     juego.guardar_en_redis()
-    print("Estado de la partida guardado en Redis. Fin del juego.")
+print("Estado de la partida guardado en Redis. Fin del juego.")
 
-
+   
 if __name__ == "__main__":
     main()
 
