@@ -74,17 +74,18 @@ class BackgammonGame:
             print("Esa ficha no te pertenece.")
             return False
 
-        distancia = abs(destino - origen)
-        if distancia not in self.dados:
-            print(f"Movimiento inválido: distancia {distancia} no coincide con dados {self.dados}.")
+        # Distancia según dirección
+        if ficha.jugador == 1:  # blancas
+            distancia = origen - destino
+        else:  # negras
+            distancia = destino - origen
+
+        if distancia <= 0:
+            print("Movimiento en dirección inválida.")
             return False
 
-        # Validar dirección según color
-        if ficha.jugador == 1 and destino >= origen:
-            print("Las blancas se mueven hacia la izquierda (índices menores).")
-            return False
-        if ficha.jugador == 2 and destino <= origen:
-            print("Las negras se mueven hacia la derecha (índices mayores).")
+        if distancia not in self.dados:
+            print(f"Movimiento inválido: la distancia {distancia} no coincide con los dados {self.dados}.")
             return False
 
         # Mover ficha
@@ -147,3 +148,4 @@ class BackgammonGame:
             self.board.puntos.append([Checker(j, i) for j in punto])
 
         print("Partida restaurada desde Redis.")
+
