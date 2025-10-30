@@ -70,14 +70,17 @@ class BackgammonGame:
 
         ficha = self.board.puntos[origen][-1]
 
-        # Compatibilidad con tests: forzar ficha al jugador actual
+        # Validar que la ficha pertenece al jugador actual
         if ficha.jugador != self.turno_actual:
-          print("Esa ficha no te pertenece.")
-        return False
- 
+            print("Esa ficha no te pertenece.")
+            return False
 
         # Calcular distancia de movimiento (sin dirección negativa)
         distancia = abs(destino - origen)
+
+        if distancia == 0:
+            print("Movimiento inválido: origen y destino son iguales.")
+            return False
 
         if distancia not in self.dados:
             print(f"Movimiento inválido: la distancia {distancia} no coincide con los dados {self.dados}.")
@@ -143,7 +146,3 @@ class BackgammonGame:
             self.board.puntos.append([Checker(j, i) for j in punto])
 
         print("Partida restaurada desde Redis.")
-
-
-
-
