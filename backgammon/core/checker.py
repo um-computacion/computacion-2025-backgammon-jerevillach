@@ -12,4 +12,15 @@ class Checker:
     def mover(self, nueva_posicion):
         """Cambia la posición de la ficha."""
         self.posicion = nueva_posicion
+     # Métodos agregados para compatibilidad con los tests
+    def obtener_color(self):
+        """Devuelve el color textual usado en los tests."""
+        if isinstance(self.jugador, str):
+            return self.jugador
+        return "blanco" if self.jugador == 1 else "negro"
+
+    def obtener_posicion(self):
+        """Devuelve la posición actual de la ficha."""
+        return self.posicion
+   
 

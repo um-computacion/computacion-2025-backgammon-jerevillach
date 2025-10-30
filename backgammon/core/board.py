@@ -47,5 +47,20 @@ class Board:
         """Vacía todas las posiciones del tablero."""
         self.puntos = [[] for _ in range(24)]
         return self.puntos
+    # Métodos agregados solo para compatibilidad con los tests
+     # Métodos agregados para compatibilidad con tests automáticos
+    def add_piece(self, punto):
+        """Agrega una ficha en el punto indicado (modo test)."""
+     # Métodos agregados para compatibilidad con tests automáticos
+    def add_piece(self, punto):
+        """Agrega una ficha en el punto indicado (modo test)."""
+        if not hasattr(self, "_Board__puntos__"):
+            self.__puntos__ = [0 for _ in range(24)]
+        if 0 <= punto < 24:
+            self.__puntos__[punto] += 1
 
-
+    def reset_board(self):
+        """Resetea el tablero a 24 posiciones vacías."""
+        self.puntos = [[] for _ in range(24)]
+        self.__puntos__ = [0 for _ in range(24)]
+        return self.__puntos__
