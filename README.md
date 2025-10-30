@@ -21,5 +21,5 @@ sudo service redis-server start
 ejecuta el juego
 python main.py
 elegi el jugar nueva partida
-y despues si queres iniciar una nueva partida haces lo mismo o reaunudas la partida que estabas jugando
+y despues si queres iniciar una nueva partida haces lo mismo o reaunudas la partida que estabas jugando.
 
